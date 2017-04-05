@@ -3,31 +3,31 @@ package com.ipartek.formacion.ejemplopoo.programa;
 import java.util.ArrayList;
 
 public class Carrito {
-	private double PrecioTotal;
+	private double precioTotal;
 	private final double IVA = 21;
-	private int NumeroDeArticulos;
+	private int numeroDeArticulos;
 	private ArrayList<Producto> productos;
 
 	public Carrito() {
 		productos = new ArrayList<Producto>();
-		this.PrecioTotal = 0;
-		this.NumeroDeArticulos = 0;
+		this.precioTotal = 0;
+		this.numeroDeArticulos = 0;
 	}
 
 	public void add(Producto producto) {
 		this.productos.add(producto);
-		this.NumeroDeArticulos++;
-		this.PrecioTotal += producto.getPrecio();
+		this.numeroDeArticulos++;
+		this.precioTotal += producto.getPrecio();
 
 	}
 
 	public String getPrecioTotal() {
 		return "El precio de la compra asciende a "
-				+ aDosDecimales(PrecioTotal) + "€+IVA.";
+				+ aDosDecimales(precioTotal) + "€+IVA.";
 	}
 
 	public String getNumeroDeArticulos() {
-		return "Este carrito posee " + NumeroDeArticulos + " articulos.";
+		return "Este carrito posee " + numeroDeArticulos + " articulos.";
 	}
 
 	public ArrayList<Producto> getProductos() {
@@ -40,16 +40,16 @@ public class Carrito {
 
 	public String getIvaSobrePrecioTotal() {
 		double resultado;
-		resultado = (this.PrecioTotal * this.IVA) / 100;
+		resultado = (this.precioTotal * this.IVA) / 100;
 		return "IVA=" + aDosDecimales(resultado) + "€";
 
 	}
 
 	public String getPrecioTotalConIva() {
-		double PrecioConIvaAñadido;
-		double IVASobrePrecio = (this.PrecioTotal * this.IVA) / 100;
-		PrecioConIvaAñadido = this.PrecioTotal + IVASobrePrecio;
-		return "Total a pagar:" + aDosDecimales(PrecioConIvaAñadido)
+		double precioConIvaAñadido;
+		double IVASobrePrecio = (this.precioTotal * this.IVA) / 100;
+		precioConIvaAñadido = this.precioTotal + IVASobrePrecio;
+		return "Total a pagar:" + aDosDecimales(precioConIvaAñadido)
 				+ "€ IVA incluido.";
 	}
 
